@@ -1,13 +1,13 @@
 #!/bin/sh
 
 parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
-echo 'Current path is ' $parent_path
+echo '[test] Current path is ' $parent_path
 cd "$parent_path"
 
 plugin_dir="../../vim-svelte-plugin"
 if [ ! -d "$plugin_dir" ] 
 then
-  echo 'Error: vim-svelte-plugin is not found at ' $plugin_dir
+  echo '[test] Error: vim-svelte-plugin is not found at ' $plugin_dir
   exit 1
 fi
 
@@ -19,15 +19,19 @@ messages_result=`cat output.txt`
 
 if [ ! -z "$diff_result" ]
 then
-  echo 'Error: file is changed after indentation'
+  echo '[test] Error: file is changed after indentation'
   echo $diff_result
   exit 1
+else
+  echo '[test] No unexpected changes'
 fi
 if [ ! -z "$messages_result" ]
 then
-  echo 'Error: there are unexpected messages'
+  echo '[test] Error: there are unexpected messages'
   echo $messages_result
   exit 1
+else
+  echo '[test] No unexpected messages'
 fi
 
-echo 'Testing is passed'
+echo '[test] Testing is successful'
