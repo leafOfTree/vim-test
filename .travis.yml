@@ -1,5 +1,5 @@
 install:
-  - git clone https://github.com/leafOfTree/vim-vue-plugin ../vim-vue-plugin
+  - git clone https://github.com/leafOfTree/vim-vue-plugin ../vim-vue-plugin --depth=1
 
 script:
   - bash ./src/test.sh
