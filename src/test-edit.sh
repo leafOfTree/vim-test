@@ -1,2 +1,2 @@
-vim -u vimrc.vim -S cmds-edit.vim test.vue
+vim -u vimrc.vim -S cmds-edit.vim test.svelte
 
