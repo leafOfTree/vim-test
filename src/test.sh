@@ -17,7 +17,6 @@ vim -es -u vimrc.vim -S cmds.vim test.svelte
 diff_result=`diff -u test.svelte output.svelte`
 messages_result=`cat output.txt`
 
-echo $diff_result
 if [ ! -z "$diff_result" ]
 then
   echo 'Error: file is changed after indentation'
