@@ -20,7 +20,7 @@ messages_result=`cat output.txt`
 if [ ! -z "$diff_result" ]
 then
   tput setaf 1; echo '✘ [test] Error: file is changed after indentation'
-  echo $diff_result
+  printf "$diff_result"
   exit 1
 else
   echo '✔ [test] No unexpected changes after indentation'
@@ -28,7 +28,7 @@ fi
 if [ ! -z "$messages_result" ]
 then
   tput setaf 1; echo '✘ [test] Error: there are unexpected messages'
-  echo $messages_result
+  printf "$messages_result"
   exit 1
 else
   echo '✔ [test] No unexpected messages'
