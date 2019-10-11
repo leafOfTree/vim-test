@@ -8,12 +8,12 @@ redir => output_msgs
 messages
 redir END
 
-let expected = '\v(Messages maintainer)|(\"test.vue\")|(\"output.vue\")|(lines to indent)|(lines indented)'
+let ignores = '\v(Messages maintainer)|(\"test.vue\")|(\"output.vue\")|(lines to indent)|(lines indented)'
 let output_msgs = split(output_msgs, '\r')
 
 redir > output.txt
 for item in output_msgs
-  if item !~ expected
+  if item !~ ignores
     echo item
   endif
 endfor
