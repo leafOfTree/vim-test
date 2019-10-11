@@ -14,7 +14,7 @@ let output_msgs = split(output_msgs, '\v\n|\r')
 redir > output.txt
 for item in output_msgs
   if item !~ ignores
-    echo item.'\n'
+    echo item.'\n\r'
   endif
 endfor
 redir END
