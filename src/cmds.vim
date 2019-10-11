@@ -8,13 +8,13 @@ redir => output_msgs
 messages
 redir END
 
-let expected = '\v(Messages maintainer)|(\"test.svelte\")|(\"output.svelte\")|(lines to indent)|(lines indented)'
-let output_msgs = split(output_msgs, '\r')
+let ignores = '\v(Messages maintainer)|(\"test.svelte\")|(\"output.svelte\")|(lines to indent)|(lines indented)'
+let output_msgs = split(output_msgs, '\v\n|\r')
 
 redir > output.txt
 for item in output_msgs
-  if item !~ expected
-    echo item
+  if item !~ ignores
+    echo item.'\n'
   endif
 endfor
 redir END
