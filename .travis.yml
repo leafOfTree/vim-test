@@ -1,7 +1,9 @@
 language: minimal
 
 install:
+    - git clone https://github.com/leafOfTree/vim-vue-plugin ../vim-vue-plugin --depth=1
     - git clone https://github.com/leafOfTree/vim-svelte-plugin ../vim-svelte-plugin --depth=1
 
 script:
-    - bash ./src/test.sh
+    - bash ./start.sh vue vim-vue-plugin
+    - bash ./start.sh svelte vim-svelte-plugin
