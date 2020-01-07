@@ -4,9 +4,9 @@ install:
     - git clone https://github.com/leafOfTree/vim-vue-plugin ../vim-vue-plugin --depth=1
     - git clone https://github.com/leafOfTree/vim-svelte-plugin ../vim-svelte-plugin --depth=1
 
-    - get clone https://github.com/digitaltoad/vim-pug ../vim-pug --depth=1
-    - get clone https://github.com/kchmck/vim-coffee-script ../vim-coffee-script --depth=1
-    - get clone https://github.com/leafgarland/typescript-vim ../typescript-vim --depth=1
+    - git clone https://github.com/digitaltoad/vim-pug ../vim-pug --depth=1
+    - git clone https://github.com/kchmck/vim-coffee-script ../vim-coffee-script --depth=1
+    - git clone https://github.com/leafgarland/typescript-vim ../typescript-vim --depth=1
 
 script:
     - bash ./start.sh vue vim-vue-plugin
