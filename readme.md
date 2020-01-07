@@ -1,4 +1,4 @@
-# Test
+# Test [![Build Status](https://travis-ci.com/leafOfTree/test.svg?branch=master)](https://travis-ci.com/leafOfTree/test)
 
 Test filetype plugins, like
 
