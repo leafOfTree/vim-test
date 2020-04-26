@@ -1,7 +1,7 @@
 filetype plugin indent on
 syntax on
 set rtp+=../%plugin
-set rtp+=../vim-pug,../vim-coffee-script,../typescript-vim
+set rtp+=../vim-pug,../vim-coffee-script,../typescript-vim,../vim-stylus
 set nocp
 set expandtab
 
@@ -9,6 +9,7 @@ set expandtab
 let g:vim_vue_plugin_use_pug = 1
 let g:vim_vue_plugin_use_less = 1
 let g:vim_vue_plugin_use_sass = 1
+let g:vim_vue_plugin_use_stylus = 1
 let g:vim_vue_plugin_use_coffee = 1
 let g:vim_vue_plugin_use_typescript = 1
 let g:vim_vue_plugin_load_full_syntax = 1
