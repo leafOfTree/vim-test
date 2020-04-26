@@ -112,3 +112,13 @@ canvas {
   width: 100vh;
 }
 </style>
+
+<style lang="stylus">
+@import 'vendor'
+
+body
+  font: 12px Helvetica, Arial, sans-serif
+
+  a.button
+    border-radius: 5px
+</style>
