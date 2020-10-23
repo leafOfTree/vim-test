@@ -2,6 +2,20 @@
   <p>{greeting}</p>
 </div>
 
+<div 
+  class="foobar {className}">
+  <slot />
+</div>
+
+<div 
+  a="1"
+  b="2"
+/>
+
+<div 
+  a="1"
+  b="2" />
+
 <template lang="pug">
 // Highlight everything in here as Pug.
 main
