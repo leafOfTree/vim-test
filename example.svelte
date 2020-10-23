@@ -8,6 +8,15 @@
 </div>
 
 <div 
+  class="foobar 
+  {className}"
+>
+  <slot />
+</div>
+
+<div></div>
+
+<div 
   a="1"
   b="2"
 />
