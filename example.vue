@@ -122,3 +122,43 @@ body
   a.button
     border-radius: 5px
 </style>
+
+<route>
+{
+  "name": "home",
+  "meta": {
+    "requiresAuth": true
+  }
+}
+</route>
+
+<docs>
+# This is the documentation for component.
+</docs>
+
+<i18n lang="yaml">
+en:
+  hello: "Hello World!"
+ja:
+  hello: "こんにちは、世界！"
+</i18n>
+
+<i18n>
+{
+  "en": {
+    "language": "Language",
+    "hello": "hello, world!"
+  },
+  "ja": {
+    "language": "言語",
+    "hello": "こんにちは、世界！"
+  }
+}
+</i18n>
+
+<i18n lang="yaml">
+en:
+  hello: "Hello World!"
+ja:
+  hello: "こんにちは、世界！"
+</i18n>

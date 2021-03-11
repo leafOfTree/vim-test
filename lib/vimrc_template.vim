@@ -15,6 +15,11 @@ let g:vim_vue_plugin_use_typescript = 1
 let g:vim_vue_plugin_load_full_syntax = 1
 let g:vim_vue_plugin_highlight_vue_attr = 1
 let g:vim_vue_plugin_use_foldexpr = 1
+let g:vim_vue_plugin_custom_blocks = {
+      \'route': 'json',
+      \'i18n': ['json', 'yaml'],
+      \'docs': 'markdown'
+      \}
 autocmd FileType vue :setlocal shiftwidth=2
 
 " vim-svelte-plugin config
