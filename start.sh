@@ -25,6 +25,7 @@ plugin_dir="../$plugin"
 
 echo "[test] Current path is $parent_path"
 echo "[test] Plugin is $plugin_dir for $filetype"
+vim --version
 
 cd "$parent_path"
 if [ ! -d "$plugin_dir" ] 
