@@ -1,7 +1,7 @@
 filetype plugin indent on
 syntax on
 set rtp+=../%plugin
-set rtp+=../vim-pug,../vim-coffee-script,../typescript-vim,../vim-stylus
+set rtp+=../vim-pug,../vim-coffee-script,../typescript-vim,../vim-stylus,../yaml-vim
 set nocp
 set expandtab
 
