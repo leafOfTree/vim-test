@@ -1,4 +1,3 @@
-echom 'YAML indent file'
 " Vim indent file
 " Language:	YAML
 " Maintainer:	Nikolai Pavlov <zyx.vim@gmail.com>
@@ -155,3 +154,4 @@ function GetYAMLIndent(lnum)
 endfunction
 
 let &cpo = s:save_cpo
+
