@@ -59,12 +59,22 @@ function run_test_case() {
   session_local="session_local.vim"
   messages="messages.txt"
   echo
-  echo "● [test] test $case_example with $case_vimrc_template"
+  echo "● [test] test $case_example"
+  echo "● [test] vim"
+  test vim
 
-  test
+  echo "● [test] test $case_example"
+  echo "● [test] nvim"
+  test nvim
 }
 
 function test() {
+  if [ ! -z $1 ]; then
+    vim=$1
+  else
+    vim="vim"
+  fi
+
   # Copy case files
   cp $case_vimrc_template $vimrc_template
   cp $case_example $example
@@ -79,10 +89,10 @@ function test() {
   if [ -f $case_session ]; then
     sed -e "s/%filetype/$filetype/g; s/%output/$output/g; s/%example/$example/g; s/%messages/$messages/g;" \
     $case_session > $session_local
-    vim -es -u $vimrc -S $session -S $session_local -c "q!" $example
+    $vim -es -u $vimrc -S $session -S $session_local -c "q!" $example
     mv $session_local output
   else
-    vim -es -u $vimrc -S $session -c "q!" $example
+    $vim -es -u $vimrc -S $session -c "q!" $example
   fi
   diff_result=`diff -u $example $output`
   messages_result=`cat $messages`
@@ -111,8 +121,6 @@ function test() {
   else
     echo '✔ [test] No unexpected messages'
   fi
-
-  echo '✔ [test] Testing is successful'
 }
 
 main
