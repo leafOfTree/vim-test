@@ -101,7 +101,7 @@ function test() {
     tput setaf 1; printf %"s\n" "$diff_result"
     exit 1
   else
-    echo '✔ [test] No unexpected changes after indentation'
+    echo '✔ [test] No unexpected changes caused by indentation'
   fi
   if [ ! -z "$messages_result" ]
   then
