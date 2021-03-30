@@ -1,7 +1,8 @@
 if empty(&filetype)
   set filetype=%filetype
-  normal! gg=G
 endif
+normal! gg=G
+
 w! %output
 
 " Save messages
@@ -23,4 +24,3 @@ for item in output_msgs
 endfor
 
 redir END
-q!

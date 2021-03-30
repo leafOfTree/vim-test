@@ -10,6 +10,7 @@ set expandtab
 
 autocmd FileType vue :setlocal shiftwidth=2
 
+let g:vim_vue_plugin_test = 1
 let g:vim_vue_plugin_config = { 
       \'syntax': {
       \   'script': ['javascript'],

@@ -4,6 +4,11 @@
 </template>
 
 <template>
+  <template></template>
+  <div></div>
+</template>
+
+<template>
   <p>{{ greeting }}</p>
 </template>
 

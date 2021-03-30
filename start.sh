@@ -1,5 +1,4 @@
 #!/bin/sh
-set -e
 
 if [ $# -lt 2 ] 
 then
@@ -42,30 +41,33 @@ function init() {
 }
 
 function run_test_case() {
+  # Prepare variables
   name=$1
   vimrc_name=$1
+
   case_example="case/$filetype/$name.$filetype"
   case_vimrc_template="case/$filetype/$vimrc_name.vim"
+  case_session="case/$filetype/$name.session.vim"
+  session_template="lib/session_template.vim"
+
+  # Generated files
   output="$name.output.$filetype"
   example="$name.$filetype"
-  echo "⚪[test] test $case_example with $case_vimrc_template"
+  vimrc_template="vimrc_template.vim"
+  vimrc="vimrc.vim"
+  session="session.vim"
+  session_local="session_local.vim"
+  messages="messages.txt"
+  echo
+  echo "● [test] test $case_example with $case_vimrc_template"
+
   test
 }
 
 function test() {
-  # Input files
-  session_template="lib/session_template.vim"
-
-  # Generated files
-  vimrc="vimrc.vim"
-  session="session.vim"
-  messages="messages.txt"
-
   # Copy case files
-  vimrc_template="vimrc_template.vim"
   cp $case_vimrc_template $vimrc_template
   cp $case_example $example
-
 
   rm -f $output $messages $session
 
@@ -74,7 +76,14 @@ function test() {
 
   sed -e "s/%plugin/$plugin/g" $vimrc_template > $vimrc
 
-  vim -es -u $vimrc -S $session $example
+  if [ -f $case_session ]; then
+    sed -e "s/%filetype/$filetype/g; s/%output/$output/g; s/%example/$example/g; s/%messages/$messages/g;" \
+    $case_session > $session_local
+    vim -es -u $vimrc -S $session -S $session_local -c "q!" $example
+    mv $session_local output
+  else
+    vim -es -u $vimrc -S $session -c "q!" $example
+  fi
   diff_result=`diff -u $example $output`
   messages_result=`cat $messages`
 
