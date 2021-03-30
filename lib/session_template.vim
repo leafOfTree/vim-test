@@ -1,6 +1,3 @@
-if empty(&filetype)
-  set filetype=%filetype
-endif
 normal! gg=G
 
 w! %output
