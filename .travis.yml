@@ -5,7 +5,7 @@ language: minimal
 before_install: 
   - sudo add-apt-repository ppa:neovim-ppa/stable 
   - sudo apt-get update
-  - sudo apt-get install neovim
+  - sudo apt-get -y install neovim
 
 install:
   - git clone https://github.com/leafOfTree/vim-vue-plugin ../vim-vue-plugin --depth=1
