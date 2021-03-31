@@ -6,9 +6,6 @@ then
   exit
 fi
 
-echo "[test] vim --version"
-vim --version | head -1
-
 filetype=$1 # vue, svelte, ...
 plugin=$2 # vim-vue-plugin, vim-svelte-plugin, ...
 
@@ -27,6 +24,12 @@ function main() {
 function init() {
   parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
   plugin_dir="../$plugin"
+
+
+  echo "[test] vim --version"
+  vim --version | head -2
+  echo "[test] nvim --version"
+  nvim --version | head -2
 
   echo "[test] Current path is $parent_path"
   echo "[test] Plugin is $plugin_dir for $filetype"
