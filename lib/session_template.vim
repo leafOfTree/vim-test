@@ -1,3 +1,6 @@
+if empty(&filetype)
+  setf %filetype
+endif
 normal! gg=G
 
 w! %output
