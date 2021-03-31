@@ -21,3 +21,8 @@ for item in output_msgs
 endfor
 
 redir END
+
+" Helper functions for local session
+function! GetCurrentSyntaxList()
+  return map(synstack(line('.'), col('.')), { _, id -> synIDattr(id, 'name') })
+endfunction

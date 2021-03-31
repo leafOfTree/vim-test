@@ -16,5 +16,6 @@ let g:vim_vue_plugin_config = {
       \   'script': ['javascript'],
       \   'template': ['html'],
       \   'style': ['css'],
+      \   'docs': 'markdown',
       \},
       \}
