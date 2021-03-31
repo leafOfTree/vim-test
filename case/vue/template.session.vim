@@ -1,14 +1,14 @@
 redir >> %messages
 
 normal! gg
-call search('/template')
-if GetVueTag() != 'template'
-  echo 'expect tag to be template, but got '.GetVueTag()
-endif
+let num = 0
 
-call search('/template')
-if GetVueTag() != 'template'
-  echo 'expect tag to be template, but got '.GetVueTag()
-endif
+while num < 5
+  call search('/template')
+  if GetVueTag() != 'template'
+    echo 'expect tag to be template, but got '.GetVueTag()
+  endif
+  let num = num + 1
+endwhile
 
 redir END
