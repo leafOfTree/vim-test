@@ -1,3 +1,4 @@
+
 <div>
   <p>{greeting}</p>
 </div>
@@ -24,6 +25,15 @@
 <div 
   a="1"
   b="2" />
+
+{#if loading}<Loading />{/if}
+<Col>
+  <Button></Button>
+</Col>
+
+{#if loading}
+  <Loading />
+{/if}
 
 <template lang="pug">
 // Highlight everything in here as Pug.
