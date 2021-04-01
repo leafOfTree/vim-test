@@ -27,9 +27,11 @@
   b="2" />
 
 {#if loading}<Loading />{/if}
-<Col>
-  <Button></Button>
-</Col>
+<Row>
+  <Col>
+    <Button></Button>
+  </Col>
+</Row>
 
 {#if loading}
   <Loading />
