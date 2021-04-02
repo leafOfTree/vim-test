@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ $# -lt 2 ] 
 then
@@ -27,9 +27,9 @@ function init() {
 
 
   echo "[test] vim --version"
-  vim --version | head -2
+  vim --version | head -1
   echo "[test] nvim --version"
-  nvim --version | head -2
+  nvim --version | head -1
 
   echo "[test] Current path is $parent_path"
   echo "[test] Plugin is $plugin_dir for $filetype"
@@ -62,12 +62,10 @@ function run_test_case() {
   session_local="session_local.vim"
   messages="messages.txt"
   echo
-  echo "● [test] test $case_example"
-  echo "● [test] vim"
+  echo "● [test] $case_example, vim"
   test vim
 
-  echo "● [test] test $case_example"
-  echo "● [test] nvim"
+  echo "● [test] $case_example, nvim"
   test nvim
 }
 
@@ -97,6 +95,7 @@ function test() {
   else
     $vim -es -u $vimrc -S $session -c "q!" $example
   fi
+
   diff_result=`diff -u $example $output`
   messages_result=`cat $messages`
 
@@ -110,20 +109,21 @@ function test() {
 
   if [ ! -z "$diff_result" ]
   then
-    tput setaf 1; echo '✘ [test] Error: file is changed after indentation'
+    tput setaf 1; echo '✘ [test] Error: file changed after indentation'
     tput setaf 1; printf %"s\n" "$diff_result"
     exit 1
-  else
-    echo '✔ [test] No unexpected changes caused by indentation'
+  # else
+    # echo '✔ [test] No unexpected changes caused by indentation'
   fi
   if [ ! -z "$messages_result" ]
   then
     tput setaf 1; echo '✘ [test] Error: there are unexpected messages'
     tput setaf 1; printf %"s\n" "$messages_result"
     exit 1
-  else
-    echo '✔ [test] No unexpected messages'
+  # else
+    # echo '✔ [test] No unexpected messages'
   fi
+  echo '✔ [test] passed'
 }
 
 main
