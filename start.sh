@@ -74,14 +74,14 @@ function test() {
     vim="vim"
   fi
 
-  echo '-----------------'
-  pwd
-  ls
-  echo '-----------------'
   rm -f output/*.*
+  echo '-----------------'
+  ls output
   cp $case $target
   cp $case_vimrc $vimrc
   cp $common_session $session
+  ls output
+  echo '-----------------'
   sed -i '' -e "s#%plugin#$plugin#g" $vimrc
   sed -i '' -e "s#%filetype#$filetype#g; s#%result#$result#g; s#%target#$target#g; s#%messages#$messages#g;" \
     $session
