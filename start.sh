@@ -74,6 +74,10 @@ function test() {
     vim="vim"
   fi
 
+  echo '-----------------'
+  pwd
+  ls
+  echo '-----------------'
   rm -f output/*.*
   cp $case $target
   cp $case_vimrc $vimrc
