@@ -3,7 +3,7 @@ filetype plugin indent on
 syntax on
 set rtp+=../%plugin
 set rtp+=../vim-pug,../vim-coffee-script,../typescript-vim,../vim-stylus
-let runtime = expand('%:p:h').'/runtime'
+let runtime = expand('%:p:h').'/../runtime'
 let &rtp = runtime.','.&rtp
 set nocp
 set expandtab

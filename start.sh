@@ -1,4 +1,5 @@
 #!/bin/bash
+# set -e
 
 if [ $# -lt 2 ] 
 then
@@ -11,25 +12,15 @@ plugin=$2 # vim-vue-plugin, vim-svelte-plugin, ...
 
 function main() {
   init
-
-  files=$(ls case/$filetype/*.$filetype)
-  for file in $files
-  do
-    file=${file/case\/$filetype\//}
-    file=${file/.$filetype/}
-    run_test_case $file
-  done
+  run_test_case
 }
 
 function init() {
   parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
   plugin_dir="../$plugin"
 
-
-  echo "[test] vim --version"
-  vim --version | head -1
-  echo "[test] nvim --version"
-  nvim --version | head -1
+  echo "[test] $(vim --version | head -1)"
+  echo "[test] $(nvim --version | head -1)"
 
   echo "[test] Current path is $parent_path"
   echo "[test] Plugin is $plugin_dir for $filetype"
@@ -40,32 +31,39 @@ function init() {
     tput setaf 1; echo "✘ [test] Error: $plugin_dir is not found" 
     exit 1
   fi
-  rm -f output/*.*
 }
 
 function run_test_case() {
+  files=$(ls case/$filetype/*.$filetype)
+  for file in $files
+  do
+    filename=${file/case\/$filetype\//}
+    name=${filename/.$filetype/}
+    run_test_case_file $name
+  done
+}
+
+function run_test_case_file() {
   # Prepare variables
   name=$1
-  vimrc_name=$1
+  common_session="lib/session.vim"
 
-  case_example="case/$filetype/$name.$filetype"
-  case_vimrc_template="case/$filetype/$vimrc_name.vim"
+  case="case/$filetype/$name.$filetype"
+  case_vimrc="case/$filetype/$name.vimrc"
   case_session="case/$filetype/$name.session.vim"
-  session_template="lib/session_template.vim"
 
-  # Generated files
-  output="$name.output.$filetype"
-  example="$name.$filetype"
-  vimrc_template="vimrc_template.vim"
-  vimrc="vimrc.vim"
-  session="session.vim"
-  session_local="session_local.vim"
-  messages="messages.txt"
+  target="output/$name.$filetype"
+  result="output/$name.output.$filetype"
+  vimrc="output/$name.vimrc"
+  session="output/session.vim"
+  local_session="output/$name.session.vim"
+  messages="output/messages.txt"
+
   echo
-  echo "● [test] $case_example, vim"
+  echo "● [test] $case, vim"
   test vim
 
-  echo "● [test] $case_example, nvim"
+  echo "● [test] $case, nvim"
   test nvim
 }
 
@@ -76,36 +74,26 @@ function test() {
     vim="vim"
   fi
 
-  # Copy case files
-  cp $case_vimrc_template $vimrc_template
-  cp $case_example $example
-
-  rm -f $output $messages $session
-
-  sed -e "s/%filetype/$filetype/g; s/%output/$output/g; s/%example/$example/g; s/%messages/$messages/g;" \
-    $session_template > $session
-
-  sed -e "s/%plugin/$plugin/g" $vimrc_template > $vimrc
-
+  rm -f output/*.*
+  cp $case $target
+  cp $case_vimrc $vimrc
+  cp $common_session $session
+  sed -i '' -e "s#%plugin#$plugin#g" $vimrc
+  sed -i '' -e "s#%filetype#$filetype#g; s#%result#$result#g; s#%target#$target#g; s#%messages#$messages#g;" \
+    $session
   if [ -f $case_session ]; then
-    sed -e "s/%filetype/$filetype/g; s/%output/$output/g; s/%example/$example/g; s/%messages/$messages/g;" \
-    $case_session > $session_local
-    $vim -es -u $vimrc -S $session -S $session_local -c "q!" $example
-    mv $session_local output
-  else
-    $vim -es -u $vimrc -S $session -c "q!" $example
+    cp $case_session $local_session
+    sed -i '' -e "s#%filetype#$filetype#g; s#%result#$result#g; s#%target#$target#g; s#%messages#$messages#g;" \
+      $local_session
   fi
 
-  diff_result=`diff -u $example $output`
-  messages_result=`cat $messages`
+  $vim -es -u $vimrc -S $session -S $local_session -c "q!" $target
+  check
+}
 
-  # Clean temporary files to output/
-  mv $example output
-  mv $output output
-  mv $messages output
-  mv $session output
-  mv $vimrc output
-  rm $vimrc_template
+function check() {
+  diff_result=`diff -u $target $result`
+  messages_result=`cat $messages`
 
   if [ ! -z "$diff_result" ]
   then

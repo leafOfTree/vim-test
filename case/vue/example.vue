@@ -158,10 +158,3 @@ ja:
   }
 }
 </i18n>
-
-<i18n lang="yaml">
-en:
-  hello: "Hello World!"
-ja:
-  hello: "こんにちは、世界！"
-</i18n>
