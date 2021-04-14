@@ -12,7 +12,7 @@ redir => output_msgs
 messages
 redir END
 
-let ignores = '\v(Messages maintainer)|(\"%target\")|(\"%result\")|(lines to indent)|(lines indented)'
+let ignores = '\v(Messages maintainer)|(\"%target\")|(\"%result\")|(lines to indent)|(lines indented)|(ATTENTION)'
 let output_msgs = split(output_msgs, '\v\n|\r')
 
 redir > %messages

@@ -34,6 +34,7 @@ function init() {
 }
 
 function run_test_case() {
+  echo "[test] Target *.$filetype"
   files=$(ls case/$filetype/*.$filetype)
   for file in $files
   do
@@ -41,17 +42,46 @@ function run_test_case() {
     name=${filename/.$filetype/}
     run_test_case_file $name
   done
+
+  # echo '[test] Target random-*'
+  # files=$(ls case/$filetype/random-*/*/*.$filetype)
+  # for file in $files
+  # do
+    # filename=${file/case\/$filetype\/random-*\//}
+    # name=${filename/.$filetype}
+    # foldername=${file/case\/$filetype\//}
+    # folder=${foldername/\/*\/*.$filetype}
+# 
+    # run_test_case_file $name $file $folder
+  # done
+
+  if [ ! -z $error ]; then
+    echo '✘ [test] failed'
+    exit 1
+  else
+    echo '✔ [test] passed'
+  fi
 }
 
 function run_test_case_file() {
-  # Prepare variables
-  name=$1
+  if [ $# -eq 1 ] 
+  then
+    name=$1
+    case="case/$filetype/$name.$filetype"
+    case_vimrc="case/$filetype/$name.vimrc"
+    case_session="case/$filetype/$name.session.vim"
+  fi
+
+  if [ $# -eq 3 ] 
+  then
+    name=$1
+    case=$2
+    folder=$3
+    case_vimrc="case/$filetype/$folder.vimrc"
+    case_session="case/$filetype/$folder.session.vimrc"
+  fi
+
   common_session="lib/session.vim"
-
-  case="case/$filetype/$name.$filetype"
-  case_vimrc="case/$filetype/$name.vimrc"
-  case_session="case/$filetype/$name.session.vim"
-
   target="output/$name.$filetype"
   result="output/$name.output.$filetype"
   vimrc="output/$name.vimrc"
@@ -59,11 +89,11 @@ function run_test_case_file() {
   local_session="output/$name.session.vim"
   messages="output/messages.txt"
 
-  echo
-  echo "● [test] $case, vim"
+  # echo
+  # echo "● [test] $case, vim"
   test vim
 
-  echo "● [test] $case, nvim"
+  # echo "● [test] $case, nvim"
   test nvim
 }
 
@@ -92,14 +122,16 @@ function test() {
 }
 
 function check() {
-  diff_result=`diff -u $target $result`
+  diff_result=`diff --color -u $target $result`
   messages_result=`cat $messages`
 
   if [ ! -z "$diff_result" ]
   then
-    tput setaf 1; echo '✘ [test] Error: file changed after indentation'
-    tput setaf 1; printf %"s\n" "$diff_result"
-    exit 1
+    diff --color -u $target $result
+    tput setaf 1; echo "✘ [test] Error: $case changed after indentation"
+    tput setaf 7
+    error=1
+    # exit 1
   # else
     # echo '✔ [test] No unexpected changes caused by indentation'
   fi
@@ -107,11 +139,13 @@ function check() {
   then
     tput setaf 1; echo '✘ [test] Error: there are unexpected messages'
     tput setaf 1; printf %"s\n" "$messages_result"
-    exit 1
+    tput setaf 7
+    error=1
+    # exit 1
   # else
     # echo '✔ [test] No unexpected messages'
   fi
-  echo '✔ [test] passed'
+  # echo '✔ [test] passed'
 }
 
 main
