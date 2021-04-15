@@ -37,10 +37,10 @@
 
   .repeating-gradient {
     background-image: repeating-linear-gradient(-45deg,
-                        rgba(255,0,0,.25),
-                        rgba(255,0,0,.25) 5px,
-                        rgba(0,0,255,.25) 5px,
-                        rgba(0,0,255,.25) 10px
-                      );
+      rgba(255,0,0,.25),
+      rgba(255,0,0,.25) 5px,
+      rgba(0,0,255,.25) 5px,
+      rgba(0,0,255,.25) 10px
+    );
   }
 </style>

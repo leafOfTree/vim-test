@@ -80,13 +80,14 @@
             avatar: 'https://picsum.photos/250/300?image=821',
             title: 'Summer BBQ <span class="grey--text text--lighten-1"></span>',
             subtitle:
-              '<span class="font-weight-bold">to Operations support</span> &mdash; Wish I could come.',
+            '<span class="font-weight-bold">to Operations support</span> &mdash; Wish I could come.',
           },
           {
             avatar: 'https://picsum.photos/250/300?image=783',
             title: 'Yes yes',
             subtitle:
               '<span class="font-weight-bold">Bella</span> &mdash; Do you have Paris recommendations',
+
           },
           {
             header: 'Yesterday',
@@ -117,9 +118,9 @@
           {
             avatar: 'https://picsum.photos/250/300?image=839',
             title:
-              'Winter Porridge <span class="grey--text text--lighten-1"></span>',
+            'Winter Porridge <span class="grey--text text--lighten-1"></span>',
             subtitle:
-              '<span class="font-weight-bold">cc: Daniel</span> &mdash; Tell me more...',
+            '<span class="font-weight-bold">cc: Daniel</span> &mdash; Tell me more...',
           },
           {
             avatar: 'https://picsum.photos/250/300?image=145',

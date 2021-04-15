@@ -61,9 +61,9 @@
 </script>
 
 <style scoped>
-.portrait.v-card {
-  margin: 0 auto;
-  max-width: 600px;
-  width: 100%;
-}
+  .portrait.v-card {
+    margin: 0 auto;
+    max-width: 600px;
+    width: 100%;
+  }
 </style>

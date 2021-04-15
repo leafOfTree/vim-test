@@ -52,8 +52,7 @@
 </template>
 
 <script>
-  const exhale = ms =>
-    new Promise(resolve => setTimeout(resolve, ms))
+  const exhale = ms => new Promise(resolve => setTimeout(resolve, ms))
 
   export default {
     data: () => ({

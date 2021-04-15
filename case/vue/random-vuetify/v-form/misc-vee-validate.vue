@@ -156,7 +156,7 @@
 </script>
 
 <codepen-resources lang="json">
-  {
-    "js": ["https://cdn.jsdelivr.net/npm/vee-validate@3.x/dist/vee-validate.js"]
-  }
+{
+  "js": ["https://cdn.jsdelivr.net/npm/vee-validate@3.x/dist/vee-validate.js"]
+}
 </codepen-resources>

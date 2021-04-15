@@ -13,7 +13,7 @@ let g:vim_vue_plugin_config = {
       \   'template': ['html'],
       \   'script': ['javascript'],
       \   'style': ['css', 'sass', 'scss'],
-      \   'codepen-additional': 'javascript',
+      \   'codepen-additional': ['javascript', 'json'],
       \},
       \'full_syntax': [],
       \'attribute': 1,

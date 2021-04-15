@@ -211,9 +211,9 @@
       formIsValid () {
         return (
           this.form.first &&
-          this.form.last &&
-          this.form.favoriteAnimal &&
-          this.form.terms
+            this.form.last &&
+            this.form.favoriteAnimal &&
+            this.form.terms
         )
       },
     },

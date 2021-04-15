@@ -34,8 +34,14 @@ function init() {
 }
 
 function run_test_case() {
-  echo "[test] Target *.$filetype"
+  total=0
+  error=0
+
   files=$(ls case/$filetype/*.$filetype)
+  files_count=$(ls case/$filetype/*.$filetype | wc -l | xargs)
+  echo "[test] Target *.$filetype, total $files_count"
+  total=$((total+ files_count))
+
   for file in $files
   do
     filename=${file/case\/$filetype\//}
@@ -43,23 +49,25 @@ function run_test_case() {
     run_test_case_file $name
   done
 
-  # echo '[test] Target random-*'
-  # files=$(ls case/$filetype/random-*/*/*.$filetype)
-  # for file in $files
-  # do
-    # filename=${file/case\/$filetype\/random-*\//}
-    # name=${filename/.$filetype}
-    # foldername=${file/case\/$filetype\//}
-    # folder=${foldername/\/*\/*.$filetype}
-# 
-    # run_test_case_file $name $file $folder
-  # done
+  files=$(ls case/$filetype/random-*/*/*.$filetype)
+  files_count=$(ls case/$filetype/random-*/*/*.$filetype | wc -l | xargs)
+  echo "[test] Target random-*, total $files_count"
+  total=$((total+ files_count))
+  for file in $files
+  do
+    filename=${file/case\/$filetype\/random-*\//}
+    name=${filename/.$filetype}
+    foldername=${file/case\/$filetype\//}
+    folder=${foldername/\/*\/*.$filetype}
 
-  if [ ! -z $error ]; then
-    echo '✘ [test] failed'
+    run_test_case_file $name $file $folder
+  done
+
+  if [ $error -gt 0 ]; then
+    echo "✘ [test] failed: $error"
     exit 1
   else
-    echo '✔ [test] passed'
+    echo "✔ [test] passed: $total"
   fi
 }
 
@@ -94,7 +102,7 @@ function run_test_case_file() {
   test vim
 
   # echo "● [test] $case, nvim"
-  test nvim
+  # test nvim
 }
 
 function test() {
@@ -130,8 +138,8 @@ function check() {
     diff --color -u $target $result
     tput setaf 1; echo "✘ [test] Error: $case changed after indentation"
     tput setaf 7
-    error=1
-    # exit 1
+    error=$((error + 1))
+    exit 1
   # else
     # echo '✔ [test] No unexpected changes caused by indentation'
   fi
@@ -140,8 +148,8 @@ function check() {
     tput setaf 1; echo '✘ [test] Error: there are unexpected messages'
     tput setaf 1; printf %"s\n" "$messages_result"
     tput setaf 7
-    error=1
-    # exit 1
+    error=$((error + 1))
+    exit 1
   # else
     # echo '✔ [test] No unexpected messages'
   fi
