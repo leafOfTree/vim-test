@@ -1,4 +1,6 @@
 set rtp+=../vim-pug,../vim-coffee-script,../typescript-vim,../vim-stylus
+let runtime = expand('%:p:h').'/../runtime'
+let &rtp = runtime.','.&rtp
 
 let g:vim_vue_plugin_config = { 
       \'syntax': {
