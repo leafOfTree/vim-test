@@ -14,11 +14,14 @@ let g:vim_vue_plugin_config = {
       \   'script': ['javascript'],
       \   'style': ['css', 'sass', 'scss'],
       \   'codepen-additional': ['javascript', 'json'],
+      \   'codepen-resources': ['javascript', 'json'],
       \},
       \'full_syntax': [],
       \'attribute': 1,
       \'keyword': 1,
       \'foldexpr': 1,
       \'init_indent': 1,
+      \'initial_indent': 
+        \['script', 'style', 'codepen-additional', 'codepen-resources.json'],
       \'debug': 0,
       \}

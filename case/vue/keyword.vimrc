@@ -1,10 +1,8 @@
 let g:vim_vue_plugin_config = { 
       \'syntax': {
       \   'template': ['html'],
-      \   'script': ['javascript'],
-      \   'style': ['css', 'sass', 'scss'],
-      \   'codepen-additional': ['javascript', 'json'],
+      \   'script': ['javascript', 'typescript'],
       \},
-      \'init_indent': 1,
+      \'keyword': 1,
       \'initial_indent': ['script', 'style', 'codepen-additional'],
       \}

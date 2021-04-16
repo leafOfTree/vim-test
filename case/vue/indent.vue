@@ -12,9 +12,16 @@
   };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   p {
     font-size: 2em;
     text-align: center;
   }
 </style>
+
+<codepen-additional>
+  const easings = {
+    linear: '',
+    easeInQuad: '',
+  }
+</codepen-additional>
