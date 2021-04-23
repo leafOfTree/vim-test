@@ -37,9 +37,9 @@ function run_test_case() {
   total=0
   error=0
 
-  run_test_case_file "fold"
-  # run_test_case_basic
-  # run_test_case_random
+  # run_test_case_file "fold"
+  run_test_case_basic
+  run_test_case_random
 
   if [ $error -gt 0 ]; then
     echo "✘ [test] failed: $error"
