@@ -38,6 +38,7 @@ function run_test_case() {
   error=0
 
   # run_test_case_file "fold"
+  # exit
   run_test_case_basic
   run_test_case_random
 
