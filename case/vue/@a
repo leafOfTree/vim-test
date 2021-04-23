@@ -1,0 +1,91 @@
+
+
+Messages maintainer: Bram Moolenaar <Bram@vim.org>
+"~/repository/dotFile/vimfiles/plugin/move_type.vim" 96L, 2881B
+
+"fold.session.vim" 14L, 295B
+"start.sh" 174L, 4007B
+1 change; before #202  13:12:15
+
+"case/vue/fold.session.vim" 14L, 295B
+"fold.session.vim" 14L, 295B [w]
+"fold.vue" 20L, 229B
+[vim-vue-plugin] scss: laod default
+[vim-vue-plugin] html: laod default
+[vim-vue-plugin][1] foldlevel >1
+[vim-vue-plugin][2] foldlevel 2
+[vim-vue-plugin][3] foldlevel 1
+[vim-vue-plugin][4] foldlevel -1
+[vim-vue-plugin][5] foldlevel >1
+[vim-vue-plugin][5] foldlevel >1
+[vim-vue-plugin][6] foldlevel 1
+[vim-vue-plugin][7] foldlevel 2
+[vim-vue-plugin][8] foldlevel 3
+[vim-vue-plugin][9] foldlevel 4
+[vim-vue-plugin][10] foldlevel 3
+[vim-vue-plugin][11] foldlevel <3
+[vim-vue-plugin][12] foldlevel 1
+[vim-vue-plugin][13] foldlevel 1
+[vim-vue-plugin][14] foldlevel -1
+[vim-vue-plugin][15] foldlevel >1
+[vim-vue-plugin][15] foldlevel >1
+[vim-vue-plugin][16] foldlevel 1
+[vim-vue-plugin][17] foldlevel 2
+[vim-vue-plugin][18] foldlevel 2
+[vim-vue-plugin][19] foldlevel 1
+[vim-vue-plugin][20] foldlevel 1
+Syntax is javascript
+
+2 fewer lines; before #32  2 seconds ago-- INSERT --
+-- INSERT --
+-- INSERT --
+-- INSERT --
+-- INSERT --
+-- INSERT --
+
+4 changes; before #34  4 seconds ago
+4 changes; before #34  4 seconds ago
+1 more line; before #33  8 seconds ago
+1 more line; before #33  8 seconds ago
+
+
+Type Name Content
+  c  ""   example
+  c  "0   example
+  l  "1   [ 'https:', index: 0, input: 'https://example.com', groups: undefined ]^J^J
+  l  "2   export default {^J  data: () => ({^J    agreement: false,^J    bio: 'Far far away, behind the word mountains, far from the countries Vokalia and Con
+  l  "3   normal! gg^J
+  l  "4   call CheckKeyword('name', 'vueObjectKey')^Jcall CheckKeyword('data', 'vueObjectFuncKey')^Jcall CheckKeyword('data', 'vueObjectFuncName')^Jcall Check
+  l  "5       echo syntax_list^J
+  l  "6     call search(a:keyword, 'W')^J  let syntax_list = GetCurrentSyntaxList()^J
+  l  "7   ^J
+  l  "8     let g:vim_vue_plugin_test = 1^J
+  l  "9         \''^J
+  c  "a   I^W^W ^[ji^[i^W^W ^[
+  c  "g   ^[
+  c  "j   jjkkj
+  c  "v   
+  c  "z   abcdef
+  c  "-   example
+  c  "*   example
+  c  ".   ^W^W 
+  c  ":   messages
+  c  "%   fold.vue
+  c  "#   /Users/apple/repository/dotFile/vimfiles/plugins/vim-test/start.sh
+  c  "/   \vmove
+  c  "=   @a
+
+Error detected while processing BufWinEnter Autocommands for "*"..function <SNR>131_DeleteMatch:
+line    1:
+E803: ID not found: 99
+Error detected while processing BufWinEnter Autocommands for "*"..function <SNR>131_DeleteMatch:
+line    2:
+E803: ID not found: 100
+"various.txt" 
+"various.txt" [RO] 773L, 31081B
+Error detected while processing BufWinEnter Autocommands for "*"..function <SNR>131_DeleteMatch:
+line    1:
+E803: ID not found: 99
+Error detected while processing BufWinEnter Autocommands for "*"..function <SNR>131_DeleteMatch:
+line    2:
+E803: ID not found: 100
