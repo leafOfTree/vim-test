@@ -39,8 +39,11 @@ function run_test_case() {
 
   # run_test_case_file "fold"
   # exit
+
   run_test_case_basic
-  run_test_case_random
+  if [ $filetype == 'vue' ]; then
+    run_test_case_random
+  fi
 
   if [ $error -gt 0 ]; then
     echo "✘ [test] failed: $error"
@@ -84,26 +87,29 @@ function run_test_case_file() {
   if [ $# -eq 1 ]; then
     name=$1
     case="case/$filetype/$name.$filetype"
-    case_vimrc="case/$filetype/$name.vimrc"
-    case_session="case/$filetype/$name.session.vim"
+    case_filename=$name
   fi
 
   if [ $# -eq 3 ]; then
     name=$1
     case=$2
     folder=$3
-    case_vimrc="case/$filetype/$folder.vimrc"
-    case_session="case/$filetype/$folder.session.vimrc"
+    case_filename=$folder
   fi
+  case_vimrc="case/$filetype/$case_filename.vimrc"
+  case_session="case/$filetype/$case_filename.session.vim"
+  case_messages="case/$filetype/$case_filename.messages.txt"
 
   common_session="lib/session.vim"
   common_vimrc="lib/.vimrc"
-  target="output/$name.$filetype"
-  result="output/$name.output.$filetype"
-  vimrc="output/$name.vimrc"
+  # output
   case_common_session="output/session.vim"
   case_common_vimrc="output/.vimrc"
   local_session="output/$name.session.vim"
+  local_messages="output/$name.messages.txt"
+  target="output/$name.$filetype"
+  result="output/$name.output.$filetype"
+  vimrc="output/$name.vimrc"
   messages="output/messages.txt"
 
   # echo
@@ -111,7 +117,7 @@ function run_test_case_file() {
   test vim
 
   # echo "● [test] $case, nvim"
-  test nvim
+  # test nvim
 }
 
 function test() {
@@ -126,6 +132,9 @@ function test() {
   cp $case_vimrc $vimrc
   cp $common_session $case_common_session
   cp $common_vimrc $case_common_vimrc
+  if [ -f $case_messages ]; then
+    cp $case_messages $local_messages
+  fi
 
   sed -i -e "s#%plugin#$plugin#g" $vimrc
   sed -i -e "s#%filetype#$filetype#g; s#%result#$result#g; s#%target#$target#g; s#%messages#$messages#g;" \
@@ -147,7 +156,11 @@ function test() {
 
 function check() {
   diff_result=`diff --color -u $target $result`
-  messages_result=`cat $messages`
+  if [ -f $local_messages ]; then
+    messages_result=`diff --color -uZ $local_messages $messages `
+  else
+    messages_result=`cat $messages`
+  fi
 
   if [ ! -z "$diff_result" ]
   then
@@ -159,9 +172,14 @@ function check() {
   # else
     # echo '✔ [test] No unexpected changes caused by indentation'
   fi
+
   if [ ! -z "$messages_result" ]
   then
-    tput setaf 1; printf %"s\n" "$messages_result"
+    if [ -f $local_messages ]; then
+      diff --color -uZ $messages $local_messages
+    else
+      tput setaf 1; printf %"s\n" "$messages_result"
+    fi
     tput setaf 1; echo "✘ [test] Error: $case got unexpected messages"
     tput setaf 7
     error=$((error + 1))

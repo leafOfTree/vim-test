@@ -1,4 +1,9 @@
 redir >> %messages
 
-ProjectList<cr>
+ProjectOpen 'tmp'
+
+call project#begin()
+
+Project 'tmp2'
+
 redir END
