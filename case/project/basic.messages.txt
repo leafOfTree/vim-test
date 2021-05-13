@@ -1,2 +1,5 @@
 
 [vim-project] Project not found: tmp
+[vim-project] No directory: /tmp123
+[vim-project] No directory: /home/travis/tmp123
+[vim-project] No directory: /abc/tmp123
