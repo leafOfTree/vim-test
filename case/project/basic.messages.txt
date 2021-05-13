@@ -3,5 +3,7 @@
 [vim-project] No directory: /tmp123
 [vim-project] No directory: /home/travis/tmp123
 [vim-project] No directory: /abc/tmp123
+"~/repository/dotFile/vimfiles/plugins/vim-test" is a directory
+Already only one window
+[vim-project] Open: vim-test
 [vim-project] Project not found: tmp
-[vim-project] Project not found: vim-test
