@@ -10,7 +10,8 @@ Project 'tmp123'
 ProjectBase '/abc'
 Project 'tmp123'
 
-ProjectBase '/home/travis/build/leafOfTree'
+let path = expand('%:p:h:h:h')
+ProjectBase path
 Project 'vim-test'
 ProjectOpen 'vim-test'
 
