@@ -178,6 +178,10 @@ function check() {
   then
     if [ -f $local_messages ]; then
       diff --color -uZ $messages $local_messages
+      echo 'output ------'
+      echo $messages
+      echo 'local ------'
+      echo $local_messages
     else
       tput setaf 1; printf %"s\n" "$messages_result"
     fi
