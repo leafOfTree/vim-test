@@ -11,8 +11,8 @@ ProjectBase '/abc'
 Project 'tmp123'
 
 ProjectBase '/home/travis/build/leafOfTree'
-Project 'vim-test'
+" Project 'vim-test'
 
-ProjectOpen 'vim-test'
+" ProjectOpen 'vim-test'
 
 redir END

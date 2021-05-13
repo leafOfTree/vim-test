@@ -137,6 +137,7 @@ function test() {
   fi
 
   sed -i -e "s#%plugin#$plugin#g" $vimrc
+  sed -i -e "s#%plugin#$plugin#g" $case_common_vimrc
   sed -i -e "s#%filetype#$filetype#g; s#%result#$result#g; s#%target#$target#g; s#%messages#$messages#g;" \
     $case_common_session
   if [ -f $case_session ]; then

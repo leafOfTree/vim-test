@@ -1,6 +1,6 @@
 filetype plugin indent on
 syntax on
-set rtp+=../vim-vue-plugin
+set rtp+=../%plugin
 set nocp
 set expandtab
 
