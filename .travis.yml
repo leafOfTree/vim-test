@@ -17,6 +17,7 @@ install:
   - git clone https://github.com/iloginow/vim-stylus.git ../vim-stylus --depth=1
 
 script:
-  - bash ./start.sh vue vim-vue-plugin
-  - bash ./start.sh wpy vim-vue-plugin
-  - bash ./start.sh svelte vim-svelte-plugin
+  # - bash ./start.sh vue vim-vue-plugin
+  # - bash ./start.sh wpy vim-vue-plugin
+  # - bash ./start.sh svelte vim-svelte-plugin
+  - bash ./start.sh project vim-project
