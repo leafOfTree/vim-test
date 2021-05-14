@@ -1,4 +1,4 @@
-redir >> %messages
+redir => output_msgs
 
 ProjectOpen 'tmp'
 
@@ -14,7 +14,16 @@ let path = expand('%:p:h:h:h')
 ProjectBase path
 Project 'vim-test'
 ProjectOpen 'vim-test'
-
 ProjectOpen 'tmp'
 
+redir END
+
+redir >> %messages
+let ignores = '\v(is a directory)|(Already only one)'
+let output_msgs = split(output_msgs, '\v\n|\r')
+for item in output_msgs
+  if item !~ ignores
+    echo item
+  endif
+endfor
 redir END
