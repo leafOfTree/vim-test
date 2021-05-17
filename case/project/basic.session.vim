@@ -5,17 +5,31 @@ ProjectOpen 'tmp'
 call project#begin()
 
 Project '/tmp123'
-Project 'tmp123'
+if expand('~') == '/home/travis'
+  Project 'tmp123'
+else
+  ProjectBase '/home/travis'
+  Project 'tmp123'
+endif
 
 ProjectBase '/abc'
 Project 'tmp123'
 
 let path = expand('%:p:h:h:h')
+
 ProjectBase path
 Project 'vim-test'
 ProjectOpen 'vim-test'
-ProjectOpen 'tmp'
 
+if expand('~') == '/home/travis'
+  ProjectInfo
+else
+  echo '[vim-project] Name: vim-test, path: /home/travis/'
+endif
+
+ProjectExit
+
+ProjectOpen 'tmp'
 redir END
 
 redir >> %messages
