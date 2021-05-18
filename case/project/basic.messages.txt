@@ -10,7 +10,7 @@
 
 /tmp/vim-project-config/vim-test___home_travis_build_leafOfTree
 
-/tmp/vim-project-config
+/tmp/vim-project-config/
 
 /home/travis/build/leafOfTree/vim-test
 [{'name': 'vim-test', 'note': '', 'fullpath': '/home/travis/build/leafOfTree/vim-test', 'option': {}, 'auto': 0, 'path': '/home/travis/build/leafOfTree'}]
