@@ -6,5 +6,6 @@
 [vim-project] Open: vim-test
 [vim-project] Name: vim-test, path: /home/travis/build/leafOfTree
 [vim-project] Already opened
+/home/travis/build/leafOfTree/vim-test
 [vim-project] Exit: vim-test
 [vim-project] Project not found: tmp

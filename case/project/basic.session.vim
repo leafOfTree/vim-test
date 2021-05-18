@@ -24,10 +24,21 @@ ProjectOpen 'vim-test'
 if expand('~') == '/home/travis'
   ProjectInfo
 else
-  echo '[vim-project] Name: vim-test, path: /home/travis/'
+  echo '[vim-project] Name: vim-test, path: /home/travis/build/leafOfTree'
 endif
 
 ProjectOpen 'vim-test'
+echo expand('%')
+
+ProjectConfig
+echo expand('%')
+
+ProjectPluginConfig
+echo expand('%')
+
+ProjectRoot
+echo expand('%')
+
 ProjectExit
 
 ProjectOpen 'tmp'
