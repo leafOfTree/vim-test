@@ -1,11 +1,23 @@
+""" Test commands
+" ProjectExit 
+" ProjectInfo 
+" ProjectRoot 
+" ProjectConfig 
+" ProjectPluginConfig 
+" ProjectOpen 
+" ProjectBase
+" Project
+" ProjectOutput
+
 redir => output_msgs
 
+let is_travis = expand('~') == '/home/travis'
 ProjectOpen 'tmp'
 
 call project#begin()
 
 Project '/tmp123'
-if expand('~') == '/home/travis'
+if is_travis
   Project 'tmp123'
 else
   ProjectBase '/home/travis'
@@ -21,27 +33,43 @@ ProjectBase path
 Project 'vim-test'
 ProjectOpen 'vim-test'
 
-if expand('~') == '/home/travis'
-  ProjectInfo
+if is_travis
 else
-  echo '[vim-project] Name: vim-test, path: /home/travis/build/leafOfTree'
 endif
 
-ProjectOpen 'vim-test'
-echo expand('%')
+if is_travis
+  ProjectInfo
+  ProjectOpen 'vim-test'
+  echo expand('%')
 
-ProjectConfig
-echo expand('%')
+  ProjectConfig
+  echo expand('%')
 
-ProjectPluginConfig
-echo expand('%')
+  ProjectPluginConfig
+  echo expand('%')
 
-ProjectRoot
-echo expand('%')
+  ProjectRoot
+  echo expand('%')
+else
+  echo '[vim-project] Name: vim-test, path: /home/travis/build/leafOfTree'
+  echo '[vim-project] Already opened'
+  echo '/home/travis/build/leafOfTree/vim-test'
+  echo ''
+  echo '/tmp/vim-project-config/vim-test___home_travis_build_leafOfTree'
+  echo ''
+  echo '/tmp/vim-project-config/'
+  echo ''
+  echo '/home/travis/build/leafOfTree/vim-test'
+endif
 
 ProjectExit
 
 ProjectOpen 'tmp'
+
+ProjectOutput
+ProjectOutput 'vim-test'
+ProjectOutput 'vim-project'
+
 redir END
 
 redir >> %messages
