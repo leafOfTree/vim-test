@@ -45,7 +45,7 @@ ProjectOpen 'tmp'
 redir END
 
 redir >> %messages
-let ignores = '\v(is a directory)|(Already only one)'
+let ignores = '\v(is a directory)|(Already only one)|(Illegal file name)'
 let output_msgs = split(output_msgs, '\v\n|\r')
 for item in output_msgs
   if item !~ ignores
