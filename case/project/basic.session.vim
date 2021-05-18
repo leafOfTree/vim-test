@@ -27,6 +27,7 @@ else
   echo '[vim-project] Name: vim-test, path: /home/travis/'
 endif
 
+ProjectOpen 'vim-test'
 ProjectExit
 
 ProjectOpen 'tmp'

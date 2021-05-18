@@ -4,6 +4,7 @@
 [vim-project] No directory: /home/travis/tmp123
 [vim-project] No directory: /abc/tmp123
 [vim-project] Open: vim-test
-[vim-project] Name: vim-test, path: /home/travis/
+[vim-project] Name: vim-test, path: /home/travis/build/leafOfTree
+[vim-project] Already opened
 [vim-project] Exit: vim-test
 [vim-project] Project not found: tmp
