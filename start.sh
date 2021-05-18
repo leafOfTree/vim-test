@@ -117,7 +117,7 @@ function run_test_case_file() {
   test vim
 
   # echo "● [test] $case, nvim"
-  # test nvim
+  test nvim
 }
 
 function test() {
