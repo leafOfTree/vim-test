@@ -66,8 +66,6 @@ endif
 
 ProjectExit
 ProjectOpen 'tmp'
-
-
 redir END
 
 redir >> %messages

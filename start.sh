@@ -156,16 +156,16 @@ function test() {
 }
 
 function check() {
-  diff_result=`diff --color -u $target $result`
+  diff_result=`diff --color -uB $target $result`
   if [ -f $local_messages ]; then
-    messages_result=`diff --color -uZ $local_messages $messages `
+    messages_result=`diff --color -uBZ $local_messages $messages `
   else
     messages_result=`cat $messages`
   fi
 
   if [ ! -z "$diff_result" ]
   then
-    diff --color -u $target $result
+    diff --color -uB $target $result
     tput setaf 1; echo "✘ [test] Error: $case changed after indentation"
     tput setaf 7
     error=$((error + 1))
