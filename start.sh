@@ -37,8 +37,8 @@ function run_test_case() {
   total=0
   error=0
 
-  run_test_case_file "oneline"
-  exit
+  # run_test_case_file "oneline"
+  # exit
 
   run_test_case_basic
   if [ $filetype == 'vue' ]; then
