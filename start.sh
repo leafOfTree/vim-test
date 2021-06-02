@@ -37,8 +37,8 @@ function run_test_case() {
   total=0
   error=0
 
-  # run_test_case_file "fold"
-  # exit
+  run_test_case_file "oneline"
+  exit
 
   run_test_case_basic
   if [ $filetype == 'vue' ]; then
@@ -147,6 +147,7 @@ function test() {
   fi
 
   cat $vimrc >> $case_common_vimrc
+
   $vim -es \
     -u $case_common_vimrc \
     -S $case_common_session -S $local_session \

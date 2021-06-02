@@ -6,31 +6,30 @@
 " ProjectPluginConfig 
 " ProjectOpen 
 " ProjectBase
-" Project
+" ProjectAdd
 " ProjectOutput
 
 redir => output_msgs
 
 let is_travis = expand('~') == '/home/travis'
-ProjectOpen 'tmp'
+ProjectOpen tmp
 
-call project#begin()
-
-Project '/tmp123'
+ProjectAdd /tmp123
 if is_travis
-  Project 'tmp123'
+  ProjectAdd tmp123
 else
-  ProjectBase '/home/travis'
-  Project 'tmp123'
+  ProjectBase /home/travis
+  ProjectAdd tmp123
 endif
 
 ProjectBase '/abc'
-Project 'tmp123'
+ProjectAdd 'tmp123'
 
 let path = expand('%:p:h:h:h')
 
-ProjectBase path
-Project 'vim-test'
+execute 'ProjectBase '.path
+ProjectAdd 'vim-test'
+ProjectAdd 'vim-test'
 ProjectOpen 'vim-test'
 
 if is_travis
