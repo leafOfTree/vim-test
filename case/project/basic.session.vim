@@ -65,6 +65,8 @@ endif
 
 ProjectQuit
 ProjectOpen 'tmp'
+ProjectRemove 'vim-test'
+ProjectOpen 'vim-test'
 redir END
 
 redir >> %messages

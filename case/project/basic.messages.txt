@@ -17,3 +17,5 @@
 []
 [vim-project] Quit: vim-test
 [vim-project] Project not found: tmp
+[vim-project] Removed: vim-test
+[vim-project] Project not found: vim-test
