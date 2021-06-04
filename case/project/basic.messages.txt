@@ -15,5 +15,5 @@
 [{'name': 'vim-test', 'note': '', 'fullpath': '/home/travis/build/leafOfTree/vim-test', 'option': {}, 'auto': 0, 'path': '/home/travis/build/leafOfTree'}]
 [{'name': 'vim-test', 'note': '', '_match_type': 'name', 'fullpath': '/home/travis/build/leafOfTree/vim-test', 'option': {}, '_match_index': 0, 'auto': 0, 'path': '/home/travis/build/leafOfTree'}]
 []
-[vim-project] Exit: vim-test
+[vim-project] Quit: vim-test
 [vim-project] Project not found: tmp

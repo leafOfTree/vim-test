@@ -1,5 +1,5 @@
 """ Test commands
-" ProjectExit 
+" ProjectQuit 
 " ProjectInfo 
 " ProjectRoot 
 " ProjectConfig 
@@ -11,10 +11,10 @@
 
 redir => output_msgs
 
-let is_travis = expand('~') == '/home/travis'
 ProjectOpen tmp
-
 ProjectAdd /tmp123
+
+let is_travis = expand('~') == '/home/travis'
 if is_travis
   ProjectAdd tmp123
 else
@@ -63,7 +63,7 @@ else
   echo "[]"
 endif
 
-ProjectExit
+ProjectQuit
 ProjectOpen 'tmp'
 redir END
 

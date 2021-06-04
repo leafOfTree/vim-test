@@ -1,0 +1,5 @@
+[vim-project] Open: vim-test
+readme.md
+[vim-project] Quit: vim-test
+[vim-project] Open: vim-test
+readme.md
