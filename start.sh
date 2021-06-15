@@ -37,7 +37,7 @@ function run_test_case() {
   total=0
   error=0
 
-  # run_test_case_file "oneline"
+  # run_test_case_file "session"
   # exit
 
   run_test_case_basic
