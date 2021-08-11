@@ -2,9 +2,6 @@ redir => output_msgs
 
 let is_travis = expand('~') == '/home/travis'
 
-let path = expand('%:p:h:h:h')
-
-execute 'ProjectBase '.path
 ProjectAdd 'vim-test'
 ProjectOpen 'vim-test'
 edit readme.md

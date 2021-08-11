@@ -37,7 +37,7 @@ function run_test_case() {
   total=0
   error=0
 
-  # run_test_case_file "session"
+  # run_test_case_file "vue3"
   # exit
 
   run_test_case_basic

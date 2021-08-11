@@ -26,10 +26,9 @@ ProjectBase '/abc'
 ProjectAdd 'tmp123'
 
 let path = expand('%:p:h:h:h')
-
 execute 'ProjectBase '.path
-" ProjectAdd 'vim-test'
-" ProjectRemove 'vim-test'
+ProjectAdd 'vim-test'
+ProjectRemove 'vim-test'
 ProjectAdd 'vim-test'
 ProjectOpen 'vim-test'
 
