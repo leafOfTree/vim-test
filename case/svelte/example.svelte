@@ -1,3 +1,18 @@
+<Cell
+  type="button"
+  inactive={!loadedPassageId}
+  onClick={() => {
+    unloadPassage()
+    return {}
+  }}>Unload</Cell>
+
+<Cell
+  type="button"
+  inactive={!passageSaveable}
+  onClick={function () {
+    savePassage()
+    return {}
+  }}>Save {loadedPassageId ? "(Update)" : "(New) "}</Cell>
 
 <div>
   <p>{greeting}</p>
