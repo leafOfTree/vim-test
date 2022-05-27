@@ -1,46 +1,41 @@
-""" Test commands
+""" Test commands:
 " ProjectQuit 
 " ProjectInfo 
 " ProjectRoot 
 " ProjectConfig 
 " ProjectPluginConfig 
 " ProjectOpen 
-" ProjectBase
-" ProjectAdd
+" Project
 " ProjectOutput
 
 redir => output_msgs
 
 ProjectOpen tmp
-ProjectAdd /tmp123
+Project /tmp123
 
 let is_travis = expand('~') == '/home/travis'
 if is_travis
-  ProjectAdd tmp123
+  Project tmp123
 else
-  ProjectBase /home/travis
-  ProjectAdd tmp123
+  Project /home/travis/tmp123
 endif
 
-ProjectBase '/abc'
-ProjectAdd 'tmp123'
+Project '/abc/tmp123'
 
-let path = expand('%:p:h:h:h')
-execute 'ProjectBase '.path
-ProjectAdd 'vim-test'
+Project 'vim-test'
 ProjectRemove 'vim-test'
-ProjectAdd 'vim-test'
+Project 'vim-test'
 ProjectOpen 'vim-test'
 
 if is_travis
-  ProjectInfo
+  silent ProjectInfo
   ProjectOpen 'vim-test'
+  echo expand('%')
+ 
+  ProjectAllConfig
   echo expand('%')
 
   ProjectConfig
-  echo expand('%')
-
-  ProjectPluginConfig
   echo expand('%')
 
   ProjectRoot
@@ -50,7 +45,6 @@ if is_travis
   ProjectOutput 'vim-test'
   ProjectOutput 'vim-project'
 else
-  echo '[vim-project] Name: vim-test, path: /home/travis/build/leafOfTree'
   echo '[vim-project] Already opened'
   echo '/home/travis/build/leafOfTree/vim-test'
   echo ''
@@ -70,7 +64,7 @@ ProjectOpen 'vim-test'
 redir END
 
 redir >> %messages
-let ignores = '\v(is a directory)|(Already only one)|(Illegal file name)'
+let ignores = '\v(is a directory)|(Already only one)|(Illegal file name)|(Removed record of vim-test)'
 let output_msgs = split(output_msgs, '\v\n|\r')
 for item in output_msgs
   if item !~ ignores

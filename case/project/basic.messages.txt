@@ -1,13 +1,15 @@
 
 [vim-project] Project not found: tmp
-[vim-project] No directory: /tmp123
-[vim-project] No directory: /home/travis/tmp123
-[vim-project] No directory: /abc/tmp123
-[vim-project] Added: vim-test
-[vim-project] Removed: vim-test
-[vim-project] Added: vim-test
-[vim-project] Open: vim-test
-[vim-project] Name: vim-test, path: /home/travis/build/leafOfTree
+[vim-project] Directory not found: /tmp123
+[vim-project] Directory not found: /home/travis/tmp123
+[vim-project] Directory not found: /abc/tmp123
+[vim-project] Opened vim-test
+[vim-project] Added vim-test. Config created at /tmp/vim-project-config
+[vim-project] Quitted vim-test
+
+[vim-project] Opened vim-test
+[vim-project] Added vim-test. Config created at /tmp/vim-project-config
+[vim-project] Already opened
 [vim-project] Already opened
 /home/travis/build/leafOfTree/vim-test
 
@@ -18,7 +20,6 @@
 [{'name': 'vim-test', 'note': '', 'fullpath': '/home/travis/build/leafOfTree/vim-test', 'option': {}, 'auto': 0, 'path': '/home/travis/build/leafOfTree'}]
 [{'name': 'vim-test', 'note': '', '_match_type': 'name', 'fullpath': '/home/travis/build/leafOfTree/vim-test', 'option': {}, '_match_index': 0, 'auto': 0, 'path': '/home/travis/build/leafOfTree'}]
 []
-[vim-project] Quit: vim-test
+[vim-project] Quitted vim-test
 [vim-project] Project not found: tmp
-[vim-project] Removed: vim-test
 [vim-project] Project not found: vim-test
