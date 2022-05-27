@@ -9,6 +9,7 @@ fi
 
 filetype=$1 # vue, svelte, ...
 plugin=$2 # vim-vue-plugin, vim-svelte-plugin, ...
+case_name=$3 # basic, ...
 
 function main() {
   init
@@ -37,8 +38,10 @@ function run_test_case() {
   total=0
   error=0
 
-  # run_test_case_file "vue3"
-  # exit
+  if [ ! -z $case_name ]; then
+    run_test_case_file $case_name
+    exit
+  fi
 
   run_test_case_basic
   if [ $filetype == 'vue' ]; then
@@ -164,8 +167,7 @@ function check() {
     messages_result=`cat $messages`
   fi
 
-  if [ ! -z "$diff_result" ]
-  then
+  if [ ! -z "$diff_result" ]; then
     diff --color -uB $target $result
     tput setaf 1; echo "✘ [test] Error: $case changed after indentation"
     tput setaf 7
@@ -175,8 +177,7 @@ function check() {
     # echo '✔ [test] No unexpected changes caused by indentation'
   fi
 
-  if [ ! -z "$messages_result" ]
-  then
+  if [ ! -z "$messages_result" ]; then
     if [ -f $local_messages ]; then
       diff --color -uZ $messages $local_messages
     else

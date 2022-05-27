@@ -8,7 +8,7 @@ Test filetype plugins, like
 
 ## Usage
 
-    bash start.sh <filetype> <plugin>
+    bash start.sh <filetype> <plugin> [<case_name>]
 
 With fold structrue like
 
@@ -18,11 +18,17 @@ With fold structrue like
 
 providing `test/example.vue` which has correct indentation,
 
+### Run all tests
+
 run 
 
     bash test/start.sh vue vim-vue-plugin
 
 to check if there are indentation changes or error messages.
+
+### Run a single test case
+
+    bash test/start.sh vue vim-vue-plugin basic
 
 ### Configure
 
