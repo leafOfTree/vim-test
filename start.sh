@@ -39,14 +39,17 @@ function run_test_case() {
   error=0
 
   if [ ! -z $case_name ]; then
+    echo "[test] run single case "$case_name
     run_test_case_file $case_name
-    exit
+  else
+    echo "[test] run basic tests"
+    run_test_case_basic
+    if [ $filetype == 'vue' ]; then
+      echo "[test] run Vue random tests"
+      run_test_case_random
+    fi
   fi
 
-  run_test_case_basic
-  if [ $filetype == 'vue' ]; then
-    run_test_case_random
-  fi
 
   if [ $error -gt 0 ]; then
     echo "✘ [test] failed: $error"
