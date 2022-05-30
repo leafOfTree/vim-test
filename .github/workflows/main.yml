@@ -27,7 +27,7 @@ jobs:
 
       - name: Run test
         run: |
-          bash ./start.sh project vim-project
+          bash ./start.sh project vim-project basic
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
 
