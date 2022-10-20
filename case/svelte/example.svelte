@@ -28,11 +28,7 @@
 
 <div>
   <p>{greeting}</p>
-  <Picture src={get(`name
-    def/${show
-    + a + c
-    ? "a"
-    : "b"}`)}
+  <Picture src={get(`namedef/${show ? "a" : "b"}`)}
   />
   <Picture
     src="a"
