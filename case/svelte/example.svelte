@@ -1,7 +1,19 @@
 <Cell
+  a="adf"
+  b="sadf"
+/>
+<Cell
+  a="adf"
+  b="sadf"
+></Cell>
+
+<Cell
   type="button"
   inactive={!loadedPassageId}
   onClick={() => {
+    const a = () => {
+      console.log(c)
+    }
     unloadPassage()
     return {}
   }}>Unload</Cell>
@@ -16,6 +28,15 @@
 
 <div>
   <p>{greeting}</p>
+  <Picture src={get(`name
+    def/${show
+    + a + c
+    ? "a"
+    : "b"}`)}
+  />
+  <Picture
+    src="a"
+  />
 </div>
 
 <div 
