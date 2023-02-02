@@ -64,7 +64,7 @@ ProjectOpen 'vim-test'
 redir END
 
 redir >> %messages
-let ignores = '\v(is a directory)|(Already only one)|(Illegal file name)|(Removed record of vim-test)'
+let ignores = '\v(is a directory)|(Already only one)|(Illegal file name)|(Removed the record of)'
 let output_msgs = split(output_msgs, '\v\n|\r')
 for item in output_msgs
   if item !~ ignores
